@@ -460,7 +460,7 @@ input {
   }
 
   .sidebar {
-    max-height: 42vh;     /* sidebar scroll — map doim ko'rinsin */
+    max-height: 42vh;
     overflow-y: auto;
     border-right: none;
     border-bottom: 1px solid var(--line);
@@ -473,23 +473,27 @@ input {
     min-height: 58dvh;
   }
 
-  /* Chart pastga tushadi */
+  /* Chart: o'ng pastda kichik floating panel */
   .chart-overlay {
     top: auto;
-    bottom: calc(14px + env(safe-area-inset-bottom));
-    right: 12px;
-    left: 12px;
-    width: auto;
-    max-width: 540px;
-    margin: 0 auto;
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    right: 10px;
+    left: auto;
+    width: min(270px, calc(100vw - 20px));
+    padding: 10px 12px 9px;
   }
+
+  #lineChart         { max-height: 120px; }
+  .chart-legend-row  { display: none; }
+  .chart-readout     { font-size: 11.5px; margin-top: 6px; }
+  .chart-readout strong { font-size: 12px; }
 }
 
 /* ── 640px: tablet portrait ───────────────────────────── */
 @media (max-width: 640px) {
   .sidebar {
     max-height: 38vh;
-    padding: 14px 14px;
+    padding: 12px 14px;
     gap: 8px;
   }
 
@@ -501,16 +505,18 @@ input {
   .legend-item   { font-size: 11px; }
   .legend-item i { width: 12px; height: 12px; }
 
-  .chart-overlay { padding: 12px 12px 10px; }
-  .chart-readout { font-size: 12px; }
-  .chart-readout strong { font-size: 13px; }
+  .chart-overlay {
+    width: min(250px, calc(100vw - 20px));
+  }
+
+  #lineChart { max-height: 110px; }
 }
 
 /* ── 480px: telefon ───────────────────────────────────── */
 @media (max-width: 480px) {
   .sidebar {
     max-height: 35vh;
-    padding: 12px 12px;
+    padding: 10px 12px;
   }
 
   .segmented button {
@@ -525,22 +531,22 @@ input {
   }
 
   .chart-overlay {
-    right: 6px;
-    left: 6px;
+    right: 8px;
     bottom: calc(10px + env(safe-area-inset-bottom));
+    width: min(230px, calc(100vw - 16px));
+    padding: 9px 10px 8px;
   }
 
-  .chart-title  { font-size: 10px; }
-  .chart-readout { font-size: 11.5px; }
-  .chart-legend-row { gap: 4px 10px; }
-  .chart-legend-item { font-size: 10px; }
+  #lineChart         { max-height: 96px; }
+  .chart-title       { font-size: 10px; }
+  .chart-readout     { font-size: 11px; margin-top: 5px; }
 }
 
 /* ── 360px: kichik telefon ────────────────────────────── */
 @media (max-width: 360px) {
   .sidebar {
     max-height: 32vh;
-    padding: 10px;
+    padding: 9px 10px;
     gap: 7px;
   }
 
@@ -551,4 +557,10 @@ input {
     min-height: 68vh;
     min-height: 68dvh;
   }
+
+  .chart-overlay {
+    width: min(210px, calc(100vw - 14px));
+  }
+
+  #lineChart { max-height: 86px; }
 }
