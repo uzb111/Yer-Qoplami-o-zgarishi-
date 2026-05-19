@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Yer Qoplami O'zgarishi — Toshkent viloyati</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar">
+
+        <div class="brand">
+          <span class="brand-kicker">Dissertatsiya MVP</span>
+          <h1>Yer Qoplami O'zgarishi</h1>
+          <p>Toshkent viloyati &middot; Sentinel-2 L2A &middot; 2017–2024</p>
+        </div>
+
+        <section class="panel">
+          <h2>Yilni tanlang</h2>
+          <div class="segmented" id="yearControls">
+            <button class="active" data-year="2017">2017</button>
+            <button data-year="2020">2020</button>
+            <button data-year="2024">2024</button>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Qatlam boshqaruvi</h2>
+          <label class="switch-row">
+            <input type="checkbox" id="changeToggle" />
+            <span>2017–2024 o'zgarish</span>
+          </label>
+          <div class="range-row">
+            <span>Shaffoflik</span>
+            <input id="opacityRange" type="range" min="25" max="100" value="82" />
+          </div>
+        </section>
+
+        <section class="panel legend-panel">
+          <h2>Yer qoplami klasslari</h2>
+          <div class="legend-item"><i style="background:#2c7bb6"></i>Suv</div>
+          <div class="legend-item"><i style="background:#238b45"></i>Zich vegetatsiya</div>
+          <div class="legend-item"><i style="background:#a6d96a"></i>Ekinzor / siyrak vegetatsiya</div>
+          <div class="legend-item"><i style="background:#bd8752"></i>Yalang yer / qurilish</div>
+          <div class="legend-item"><i style="background:#bebebe"></i>Bulut / soya</div>
+        </section>
+
+        <section class="panel legend-panel">
+          <h2>O'zgarish turlari</h2>
+          <div class="legend-item"><i style="background:#dc282d"></i>Vegetatsiya kamayishi</div>
+          <div class="legend-item"><i style="background:#298c46"></i>Vegetatsiya ortishi</div>
+          <div class="legend-item"><i style="background:#505050"></i>Qurilish / yalang yer ortishi</div>
+          <div class="legend-item"><i style="background:#2d82be"></i>Suv o'zgarishi</div>
+        </section>
+
+        <div class="status" id="statusText">Ma'lumotlar yuklanmoqda...</div>
+
+      </aside>
+
+      <section class="map-wrap">
+        <div id="map"></div>
+
+        <div class="chart-overlay" id="chartOverlay" style="display:none">
+          <div class="chart-header">
+            <span class="chart-title">Yer qoplami dinamikasi</span>
+          </div>
+          <svg id="lineChart" viewBox="0 0 270 162" preserveAspectRatio="xMidYMid meet"></svg>
+          <div id="chartReadout" class="chart-readout">Tahlil qilinmoqda...</div>
+          <div class="chart-legend-row" id="chartLegendRow"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
